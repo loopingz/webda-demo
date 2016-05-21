@@ -1,0 +1,82 @@
+{
+    "*": "lambda-demo.webda.io",
+    "lambda-demo.webda.io": {
+        "global": {
+            "params": {},
+            "services": {
+                "Users": {
+                    "expose": {
+                        "url": "/users",
+                        "restrict": {}
+                    },
+                    "type": "DynamoStore",
+                    "table": "webda.demo-users"
+                },
+                "Idents": {
+                    "type": "DynamoStore",
+                    "table": "webda.demo-idents",
+                    "expose": {
+                        "restrict": {
+                            "create": true,
+                            "update": true,
+                            "get": true
+                        },
+                        "url": "/idents"
+                    }
+                },
+                "Authentication": {
+                    "type": "Authentication",
+                    "successRedirect": "http://webda.io/user.html",
+                    "failureRedirect": "http://webda.io/index.html?login-error",
+                    "providers": {
+                        "email": {
+                            "postValidation": true,
+                            "skipEmailValidation": true
+                        }
+                    }
+                },
+                "Binary": {
+                    "type": "S3Binary",
+                    "bucket": "webda.demo-images",
+                    "expose": true,
+                    "map": {
+                        "Contacts": [
+                            "images"
+                        ]
+                    }
+                },
+                "Contacts": {
+                    "type": "DynamoStore",
+                    "table": "webda.demo-contacts",
+                    "expose": {
+                        "restrict": {
+                            "create": false,
+                            "delete": false
+                        },
+                        "url": "/contacts"
+                    },
+                    "map": {
+                        "Users": {
+                            "key": "user",
+                            "target": "contacts",
+                            "cascade": true
+                        }
+                    }
+                }
+            }
+        },
+        "/": {
+            "method": [
+                "GET"
+            ],
+            "executor": "string",
+            "result": "Webda Demo Root",
+            "mime": "text/plain",
+            "params": {
+                "result": "This is a Webda API",
+                "mime": "text/plain"
+            },
+            "callback": ""
+        }
+    }
+}
