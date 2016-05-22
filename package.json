@@ -8,10 +8,10 @@
     "api gateway"
   ],
   "author": "Remi Cattiau <remi@cattiau.com>",
-  "repository": "git://github.com/loopingz/webda.git",
+  "repository": "git://github.com/loopingz/webda-demo.git",
   "main": "immutable",
   "dependencies": {
-    "webda": "git+https://loopingz@git.loopingz.com/webda/webda.git"
+    "webda": "0.0.7"
   },
   "devDependencies": {
     "mocha": ">=2.2.5"
