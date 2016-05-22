@@ -22,6 +22,14 @@
                             "get": true
                         },
                         "url": "/idents"
+                    },
+                    "map": {
+                        "Users": {
+                            "key": "user",
+                            "target": "idents",
+                            "fields": "type",
+                            "cascade": true
+                        }
                     }
                 },
                 "Authentication": {
@@ -61,7 +69,8 @@
                             "target": "contacts",
                             "cascade": true
                         }
-                    }
+                    },
+                    "callback": ""
                 }
             }
         },
