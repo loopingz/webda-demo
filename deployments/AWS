@@ -1,0 +1,1 @@
+{"uuid":"AWS","type":"aws","params":{"accessKeyId":"YOUR RUNTIME ACCESS KEY HERE","secretAccessKey":"YOUR SECRET ACCESS KEY HERE","region":"us-west-2","website":"http://localhost:5000"},"resources":{"restApi":"webda-demo","lambdaRole":"LAMBDA ROLE ARN","accessKeyId":"DEPLOYMENT ACCESS KEY","secretAccessKey":"DEPLOYMENT SECRET ACCESS KEY"},"callback":""}
